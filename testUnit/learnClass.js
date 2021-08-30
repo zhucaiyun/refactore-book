@@ -2,7 +2,7 @@
  * @Author       : zhucaiyun1@xdf.cn
  * @Date         : 2021-08-27 14:50:19
  * @LastEditors  : zhucaiyun1@xdf.cn
- * @LastEditTime : 2021-08-27 16:59:42
+ * @LastEditTime : 2021-08-29 12:07:10
  * @Description  : 学习类的用法
  */
 function Person(name,age,gender) {
@@ -64,4 +64,20 @@ console.log(p2.printName()) // Oops
 
 // 类本身就是指向构造函数的
 console.log(Human === Human.prototype.constructor)
+
+// test sort 默认是比较字符串的前后顺序
+function sortTest(a) {
+  // a.sort((i, m) => { return i - m })
+  a.sort((i,m)=>m-i)
+  console.log(a)
+}
+sortTest([5, 3, 2, 6, 100, 1, 6, 3, 2, 1])
+
+// test foreach return 会终止吗
+const forE = [1, 2, 3, 4, 5, 6]
+forE.forEach(element => {
+  console.log('b'+element)
+  if (element > 4) return
+  console.log(element)
+})
 
