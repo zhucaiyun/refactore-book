@@ -117,6 +117,34 @@ describe('测试province', function () {
     expect(asia.shortfall).equal(-6)
     expect(asia.profile).equal(292)
   })
+  it('zero demand', function () {
+    asia.demand = 0
+    expect(asia.shortfall).equal(-25)
+    expect(asia.profile).equal(0)
+  })
+  it('empty demand', function () {
+    asia.demand = ""
+    expect(asia.shortfall).NaN
+    expect(asia.profile).NaN
+  })
+})
+describe('no producers', function () {
+  let noProducers
+  beforeEach(function () {
+    const data = {
+      name: 'no producers',
+      producers: [], // 空的产品集
+      demand: 30,
+      price: 20
+    }
+    noProducers = new Province(data)
+  })
+  it('shortFall', function () {
+    expect(noProducers.shortfall).equal(30)
+  })
+  it('profile', function () {
+    expect(noProducers.profile).equal(0)
+  })
 })
 
 
